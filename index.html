@@ -154,7 +154,60 @@
       </h2>
       <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8">
         Empowering businesses and educators in Kilifi County with cutting-edge digital tools and training.
-      </p>
+      </p>     
+         <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold text-White-500 tracking-wide">
+        We are
+      </h1>
+      <div
+  x-data="{
+    services: [
+      'a Digital Agency Solution',
+      'Website Developers',
+      'Branding Masters',
+      'Graphics Designers',
+      'Smartboard & ICT Trainers',
+      'Interactive Content Developers',
+      'Kolibri Educational Technology',
+      'Portfolio Developers',
+      'ICT Consultancy',
+    ],
+    currentText: '',
+    currentIndex: 0,
+    charIndex: 0,
+    typing: true,
+    deleting: false,
+    typeSpeed: 100,
+    delay: 1500,
+    startTyping() {
+      setInterval(() => {
+        let currentService = this.services[this.currentIndex];
+
+        if (this.typing) {
+          if (!this.deleting) {
+            // Typing forward
+            this.currentText = currentService.slice(0, this.charIndex++);
+            if (this.charIndex > currentService.length) {
+              this.deleting = true;
+              setTimeout(() => {}, this.delay);
+            }
+          } else {
+            // Deleting backwards
+            this.currentText = currentService.slice(0, this.charIndex--);
+            if (this.charIndex < 0) {
+              this.deleting = false;
+              this.currentIndex = (this.currentIndex + 1) % this.services.length;
+            }
+          }
+        }
+      }, this.typeSpeed);
+    }
+  }"
+  x-init="startTyping"
+  class="text-5xl sm:text-6xl md:text-7xl mt-8 font-extrabold font-aria text-yellow-500 tracking-wide text-center"
+>
+  <span x-text="currentText"></span>
+  <span class="animate-pulse text-yellow-500">|</span>
+</div>
       
       <div class="mt-12 flex flex-col sm:flex-row justify-center gap-4">
         <a href="#contact" class="bg-accent text-primary px-8 py-3 rounded-lg font-bold hover:bg-yellow-500 transition duration-300">
@@ -756,8 +809,36 @@
     </div>
   </section>
 
-  <!-- WhatsApp Float Button -->
-  <a href="https://wa.me/+254740163974" target="_blank" rel="noopener noreferrer"
-     class="fixed bottom-4 right-4 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-opacity-90 transition duration-300">
-    <i class="fab fa-whatsapp"></i>
-  </a>
+    <!-- WhatsApp Float Button -->
+<a href="https://wa.me/254740163974" target="_blank" rel="noopener noreferrer"
+   class="group fixed bottom-20 right-6 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 hover:bg-green-600 transition duration-300 ease-in-out animate-bounce">
+  <i class="fab fa-whatsapp text-2xl"></i>
+  <!-- Tooltip -->
+  <span class="absolute bottom-16 right-0 bg-black text-white text-xs rounded-md px-2 py-1 opacity-0 group-hover:opacity-100 transition">
+    Chat with us
+  </span>
+</a>
+
+<!-- Back to Top Button -->
+<button onclick="window.scrollTo({top:0, behavior:'smooth'});" 
+        id="backToTop" 
+        class="hidden fixed bottom-20 left-6 bg-blue-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 hover:bg-blue-700 transition duration-300 ease-in-out">
+  ↑
+</button>
+
+<!-- Footer -->
+<footer class="bg-primary text-white text-center py-6 mt-12">
+  <p>&copy; 2025 Mavinstech Solution. All rights reserved.</p>
+</footer>
+
+<script>
+  // Show/hide back-to-top button on scroll
+  const backToTop = document.getElementById("backToTop");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      backToTop.classList.remove("hidden");
+    } else {
+      backToTop.classList.add("hidden");
+    }
+  });
+</script>
