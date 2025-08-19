@@ -115,13 +115,7 @@
           </a>
         </nav>
 
-        <!-- Mobile Menu Button -->
-<button class="md:hidden text-white focus:outline-none" @click="mobileMenuOpen = !mobileMenuOpen">
-  <i class="fas fa-bars text-xl"></i>
-</button>
-</div> <!-- close nav flex container -->
-</div> <!-- close navbar container -->
-
+        
 <!-- Mobile Menu Dropdown -->
 <div class="absolute top-full left-0 w-full bg-primary shadow-lg overflow-hidden transition-all duration-500 md:hidden"
      x-bind:class="mobileMenuOpen ? 'max-h-96' : 'max-h-0'"
@@ -848,5 +842,6 @@
     }
   });
 </script>
+
 
 
