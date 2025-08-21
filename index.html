@@ -520,6 +520,311 @@
       </div>
     </div>
   </section>
+<!-- Services Section -->
+<section id="services" class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4 text-center">
+    
+    <!-- Section Title -->
+    <p class="text-accent font-semibold uppercase tracking-wide">// What We Offer</p>
+    <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-12">
+      We Offer <span class="text-accent">Wide Range</span> Services
+    </h2>
+
+    <!-- Services Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Web Application Development -->
+      <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transform hover:-translate-y-2 transition duration-300 text-center" x-data="{ open: false }">
+        <div class="flex items-center justify-center w-16 h-16 mx-auto rounded-full bg-accent text-white mb-6">
+          <i class="fas fa-code text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-3">Web Application Development</h3>
+        <p class="text-gray-600 text-sm mb-4">
+          Scalable and secure web applications designed for your business growth.
+        </p>
+        <button @click="open = true" class="inline-block bg-accent text-white px-4 py-2 rounded-lg font-semibold hover:bg-yellow-500 transition">
+          Learn More
+        </button>
+
+        <!-- Modal -->
+        <div x-show="open" x-transition class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
+          <div class="bg-white rounded-2xl shadow-xl max-w-lg w-full p-8 relative">
+            <button @click="open = false" class="absolute top-3 right-3 text-gray-500 hover:text-gray-800">✖</button>
+            <h3 class="text-2xl font-bold mb-4 text-accent">Web Application Development</h3>
+           <!-- Web App Development Tagline -->
+<p id="webapp-tagline" class="text-accent font-semibold mt-4"></p>
+
+<p class="text-gray-600 mb-4">
+  We build modern web applications with frameworks like React, Vue, Laravel, and Node.js. 
+  Our solutions are designed for performance, security, and scalability to support your business growth.
+</p>
+<ul class="list-disc text-left pl-6 text-gray-600 space-y-2">
+  <li>Custom Web Applications</li>
+  <li>API Integration & Automation</li>
+  <li>Secure & Scalable Systems</li>
+  <li>Long-Term Support & Maintenance</li>
+</ul>
+
+<script>
+  // Web App Development Taglines
+  const webappTaglines = [
+    "Building the web of tomorrow 🚀",
+    "Fast. Secure. Scalable ⚡",
+    "Custom apps for real-world needs 💡",
+    "Smart solutions for growing businesses 📈",
+    "From idea to launch — we code it all 💻"
+  ];
+
+  let wIndex = 0, wCharIndex = 0, wIsDeleting = false;
+  const webappElement = document.getElementById("webapp-tagline");
+
+  function webappTypeEffect() {
+    const currentTagline = webappTaglines[wIndex];
+
+    if (!wIsDeleting) {
+      webappElement.textContent = currentTagline.substring(0, wCharIndex + 1);
+      wCharIndex++;
+      if (wCharIndex === currentTagline.length) {
+        wIsDeleting = true;
+        setTimeout(webappTypeEffect, 2000);
+        return;
+      }
+    } else {
+      webappElement.textContent = currentTagline.substring(0, wCharIndex - 1);
+      wCharIndex--;
+      if (wCharIndex === 0) {
+        wIsDeleting = false;
+        wIndex = (wIndex + 1) % webappTaglines.length;
+      }
+    }
+    setTimeout(webappTypeEffect, wIsDeleting ? 50 : 100);
+  }
+  webappTypeEffect();
+</script>
+
+<style>
+  /* Blinking cursor for webapp tagline */
+  #webapp-tagline::after {
+    content: "|";
+    animation: blink 1s infinite;
+    margin-left: 2px;
+  }
+  @keyframes blink { 0%,50%{opacity:1;} 50%,100%{opacity:0;} }
+</style>
+
+            <button @click="open = false" class="mt-6 bg-accent text-white px-6 py-2 rounded-lg hover:bg-yellow-500 transition">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+
+     <!-- Kolibri Training -->
+<div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transform hover:-translate-y-2 transition duration-300 text-center" x-data="{ open: false }">
+  <div class="flex items-center justify-center w-16 h-16 mx-auto rounded-full bg-accent text-white mb-6">
+    <i class="fas fa-graduation-cap text-2xl"></i>
+  </div>
+  <h3 class="text-xl font-semibold mb-3">Kolibri Training</h3>
+  <p class="text-gray-600 text-sm mb-4">
+    Empowering teachers and learners with offline-first digital education tools.
+  </p>
+  <button @click="open = true" class="inline-block bg-accent text-white px-4 py-2 rounded-lg font-semibold hover:bg-yellow-500 transition">
+    Learn More
+  </button>
+
+  <!-- Modal -->
+  <div x-show="open" x-transition class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
+    <div class="bg-white rounded-2xl shadow-xl max-w-lg w-full p-8 relative">
+      <button @click="open = false" class="absolute top-3 right-3 text-gray-500 hover:text-gray-800">✖</button>
+      <h3 class="text-2xl font-bold mb-4 text-accent">Kolibri Training</h3>
+     <!-- Tagline Rotator with Typing Effect -->
+<p id="tagline" class="text-accent font-semibold mt-4"></p>
+
+<script>
+  // Tagline options
+  const taglines = [
+    "Bringing digital learning everywhere 🚀",
+    "Education without internet limits 🌍",
+    "Unlock learning — anytime, anywhere 📚",
+    "Connecting communities through offline digital education",
+    "Empowering schools with accessible technology 💡"
+  ];
+
+  let index = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  const taglineElement = document.getElementById("tagline");
+
+  function typeEffect() {
+    const currentTagline = taglines[index];
+    
+    if (!isDeleting) {
+      // Typing
+      taglineElement.textContent = currentTagline.substring(0, charIndex + 1);
+      charIndex++;
+
+      if (charIndex === currentTagline.length) {
+        // Pause before deleting
+        isDeleting = true;
+        setTimeout(typeEffect, 2000); // Hold 2 seconds
+        return;
+      }
+    } else {
+      // Deleting
+      taglineElement.textContent = currentTagline.substring(0, charIndex - 1);
+      charIndex--;
+
+      if (charIndex === 0) {
+        isDeleting = false;
+        index = (index + 1) % taglines.length;
+      }
+    }
+
+    const typingSpeed = isDeleting ? 50 : 100; // Faster delete
+    setTimeout(typeEffect, typingSpeed);
+  }
+
+  // Start typing effect
+  typeEffect();
+</script>
+
+<style>
+  /* Blinking cursor */
+  #tagline::after {
+    content: "|";
+    animation: blink 1s infinite;
+    margin-left: 4px;
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }
+</style>
+      <p class="text-gray-600 mb-4">
+        Kolibri is an offline-first platform that provides access to high-quality educational resources. 
+        We train teachers and institutions to effectively use Kolibri for enhanced learning experiences.
+      </p>
+      <button @click="open = false" class="mt-6 bg-accent text-white px-6 py-2 rounded-lg hover:bg-yellow-500 transition">
+        Close
+      </button>
+    </div>
+  </div>
+</div>
+<!-- IT & Coding Training -->
+<div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transform hover:-translate-y-2 transition duration-300 text-center" x-data="{ open: false }">
+  <div class="flex items-center justify-center w-16 h-16 mx-auto rounded-full bg-accent text-white mb-6">
+    <i class="fas fa-laptop-code text-2xl"></i>
+  </div>
+  <h3 class="text-xl font-semibold mb-3">IT & Coding Training</h3>
+  <p class="text-gray-600 text-sm mb-4">
+    Learn digital skills, coding, and problem-solving with hands-on training.
+  </p>
+  <button @click="open = true" class="inline-block bg-accent text-white px-4 py-2 rounded-lg font-semibold hover:bg-yellow-500 transition">
+    Learn More
+  </button>
+
+  <!-- Modal -->
+  <div x-show="open" x-transition class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
+    <div class="bg-white rounded-2xl shadow-xl max-w-lg w-full p-8 relative">
+      <button @click="open = false" class="absolute top-3 right-3 text-gray-500 hover:text-gray-800">✖</button>
+      <h3 class="text-2xl font-bold mb-4 text-accent">IT & Coding Training</h3>
+      <p class="text-gray-600 mb-4">
+        
+<!-- IT & Coding Training Tagline with Rotator -->
+<p id="training-tagline" class="text-accent font-semibold mt-4"></p>
+
+<!-- IT & Coding Training Tagline -->
+<p id="training-tagline" class="text-accent font-semibold mt-4"></p>
+
+<!-- Beginner Track -->
+<h3 class="text-lg font-semibold text-gray-800 mt-4">Beginner Level</h3>
+<ul class="list-disc text-left pl-6 text-gray-600 space-y-1 text-sm">
+  <li>Intro to Computers & Digital Literacy</li>
+  <li>Basics of HTML, CSS & JavaScript</li>
+  <li>Web Design Fundamentals</li>
+  <li>Simple Hands-On Projects</li>
+</ul>
+
+<!-- Intermediate Track -->
+<h3 class="text-lg font-semibold text-gray-800 mt-4">Intermediate Level</h3>
+<ul class="list-disc text-left pl-6 text-gray-600 space-y-1 text-sm">
+  <li>Advanced HTML, CSS & JavaScript</li>
+  <li>Responsive Web Design</li>
+  <li>UI/UX Basics</li>
+  <li>Interactive Projects (Portfolio, Landing Page)</li>
+</ul>
+
+<!-- Advanced Track -->
+<h3 class="text-lg font-semibold text-gray-800 mt-4">Advanced Level</h3>
+<ul class="list-disc text-left pl-6 text-gray-600 space-y-1 text-sm">
+  <li>JavaScript ES6+ & Best Practices</li>
+  <li>React.js Fundamentals</li>
+  <li>API Integration</li>
+  <li>Capstone: Full Web App</li>
+</ul>
+
+<!-- Typing Effect Script -->
+<script>
+  const trainingTaglines = [
+    "From zero to frontend hero 🚀",
+    "Code. Create. Innovate 💻",
+    "Learn by building projects 📚",
+    "Master coding, unlock opportunities 🔑"
+  ];
+
+  let tIndex = 0, tCharIndex = 0, tIsDeleting = false;
+  const trainingElement = document.getElementById("training-tagline");
+
+  function trainingTypeEffect() {
+    const currentTagline = trainingTaglines[tIndex];
+
+    if (!tIsDeleting) {
+      trainingElement.textContent = currentTagline.substring(0, tCharIndex + 1);
+      tCharIndex++;
+      if (tCharIndex === currentTagline.length) {
+        tIsDeleting = true;
+        setTimeout(trainingTypeEffect, 2000);
+        return;
+      }
+    } else {
+      trainingElement.textContent = currentTagline.substring(0, tCharIndex - 1);
+      tCharIndex--;
+      if (tCharIndex === 0) {
+        tIsDeleting = false;
+        tIndex = (tIndex + 1) % trainingTaglines.length;
+      }
+    }
+    setTimeout(trainingTypeEffect, tIsDeleting ? 50 : 100);
+  }
+  trainingTypeEffect();
+</script>
+
+<style>
+  #training-tagline::after {
+    content: "|";
+    animation: blink 1s infinite;
+    margin-left: 2px;
+  }
+  @keyframes blink { 0%,50%{opacity:1;} 50%,100%{opacity:0;} }
+</style>
+        We offer comprehensive IT and coding training programs designed for all skill levels. 
+        Our hands-on approach ensures participants gain practical experience while learning essential digital skills.
+
+      <button @click="open = false" class="mt-6 bg-accent text-white px-6 py-2 rounded-lg hover:bg-yellow-500 transition">
+        Close
+      </button>
+    </div>
+  </div>
+</div>
+      <!-- Repeat the same modal pattern for ICT Training & Tech Solutions -->
+
+    </div>
+  </div>
+</section>
+
+<!-- Alpine.js CDN -->
+<script src="https://unpkg.com/alpinejs" defer></script>
 
   <!-- Solutions Section -->
   <section id="solutions" class="py-16 px-6 bg-white">
@@ -842,6 +1147,7 @@
     }
   });
 </script>
+
 
 
 
