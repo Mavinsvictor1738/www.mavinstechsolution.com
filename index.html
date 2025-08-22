@@ -897,87 +897,101 @@
     </div>
   </section>
 
-  <!-- Testimonials Section -->
-  <section id="testimonials" class="py-16 px-6 bg-primary text-white">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold mb-4">What Our Clients Say</h2>
-        <p class="text-xl text-accent max-w-2xl mx-auto">
-          Success stories from organizations we've worked with
+  
+<!-- Testimonials Section -->
+<section id="testimonials" class="py-20 px-6 bg-primary text-white relative overflow-hidden">
+  <div class="max-w-6xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-extrabold mb-4">What Our Clients Say</h2>
+      <p class="text-lg text-accent max-w-2xl mx-auto">
+        Real success stories from the partners and organizations we’ve empowered.
+      </p>
+    </div>
+
+    <!-- Testimonials Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10" x-data="{ active: null }">
+      
+      <!-- Testimonial Card -->
+      <div 
+        class="bg-white bg-opacity-10 p-8 rounded-2xl border border-white/20 hover:border-accent hover:shadow-xl transform hover:-translate-y-2 transition duration-300"
+        @mouseenter="active=1" @mouseleave="active=null"
+      >
+        <!-- Stars -->
+        <div class="flex items-center mb-4 text-yellow-400 text-xl space-x-1">
+          <i class="fas fa-star" :class="{'animate-pulse': active===1}"></i>
+          <i class="fas fa-star" :class="{'animate-pulse': active===1}"></i>
+          <i class="fas fa-star" :class="{'animate-pulse': active===1}"></i>
+          <i class="fas fa-star" :class="{'animate-pulse': active===1}"></i>
+          <i class="fas fa-star" :class="{'animate-pulse': active===1}"></i>
+        </div>
+
+        <p class="italic mb-6 leading-relaxed">
+          "Mavinstech transformed our school's digital capabilities. The Kolibri platform they implemented has made learning more engaging for our students, even without reliable internet."
         </p>
-      </div>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Testimonial 1 -->
-        <div class="bg-white bg-opacity-10 p-6 rounded-lg border border-white border-opacity-20">
-          <div class="flex items-center mb-4">
-            <div class="text-yellow-400 text-xl mr-2">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-          </div>
-          <p class="italic mb-6">
-            "Mavinstech transformed our school's digital capabilities. The Kolibri platform they implemented has made learning more engaging for our students, even without reliable internet."
-          </p>
-          <div class="flex items-center">
-            <img src="media/testimonial1.jpg" alt="Emily Wanjala" class="w-12 h-12 rounded-full object-cover mr-4">
-            <div>
-              <h4 class="font-bold">Emily Wanjala</h4>
-              <p class="text-sm text-white text-opacity-80">Project Director, AIC Chanagande CDC</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Testimonial 2 -->
-        <div class="bg-white bg-opacity-10 p-6 rounded-lg border border-white border-opacity-20">
-          <div class="flex items-center mb-4">
-            <div class="text-yellow-400 text-xl mr-2">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-          </div>
-          <p class="italic mb-6">
-            "Our new website has brought in more customers than we ever imagined. Mavinstech understood exactly what our business needed and delivered beyond our expectations."
-          </p>
-          <div class="flex items-center">
-            <img src="media/testimonial2.jpg" alt="Richard Ngala" class="w-12 h-12 rounded-full object-cover mr-4">
-            <div>
-              <h4 class="font-bold">Richard Ngala</h4>
-              <p class="text-sm text-white text-opacity-80">Director, RGC Bamba CDC</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Testimonial 3 -->
-        <div class="bg-white bg-opacity-10 p-6 rounded-lg border border-white border-opacity-20">
-          <div class="flex items-center mb-4">
-            <div class="text-yellow-400 text-xl mr-2">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-          </div>
-          <p class="italic mb-6">
-            "The ICT training provided to our teachers has revolutionized how we deliver lessons. We're now using technology effectively in our classrooms thanks to Mavinstech."
-          </p>
-          <div class="flex items-center">
-            <img src="media/testimonial3.jpg" alt="Nickson Bonke" class="w-12 h-12 rounded-full object-cover mr-4">
-            <div>
-              <h4 class="font-bold">Nickson Bonke</h4>
-              <p class="text-sm text-white text-opacity-80">Partnership Facilitator</p>
-            </div>
+
+        <div class="flex items-center">
+          <img src="media/testimonial1.jpg" alt="Emily Wanjala" class="w-14 h-14 rounded-full object-cover mr-4 border-2 border-accent">
+          <div>
+            <h4 class="font-bold">Emily Wanjala</h4>
+            <p class="text-sm text-white/80">Project Director, AIC Chanagande CDC</p>
           </div>
         </div>
       </div>
-      
+
+      <!-- Testimonial 2 -->
+      <div 
+        class="bg-white bg-opacity-10 p-8 rounded-2xl border border-white/20 hover:border-accent hover:shadow-xl transform hover:-translate-y-2 transition duration-300"
+        @mouseenter="active=2" @mouseleave="active=null"
+      >
+        <div class="flex items-center mb-4 text-yellow-400 text-xl space-x-1">
+          <i class="fas fa-star" :class="{'animate-pulse': active===2}"></i>
+          <i class="fas fa-star" :class="{'animate-pulse': active===2}"></i>
+          <i class="fas fa-star" :class="{'animate-pulse': active===2}"></i>
+          <i class="fas fa-star" :class="{'animate-pulse': active===2}"></i>
+          <i class="fas fa-star" :class="{'animate-pulse': active===2}"></i>
+        </div>
+
+        <p class="italic mb-6 leading-relaxed">
+          "Our new website has brought in more customers than we ever imagined. Mavinstech understood exactly what our business needed and delivered beyond our expectations."
+        </p>
+
+        <div class="flex items-center">
+          <img src="media/testimonial2.jpg" alt="Richard Ngala" class="w-14 h-14 rounded-full object-cover mr-4 border-2 border-accent">
+          <div>
+            <h4 class="font-bold">Richard Ngala</h4>
+            <p class="text-sm text-white/80">Director, RGC Bamba CDC</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div 
+        class="bg-white bg-opacity-10 p-8 rounded-2xl border border-white/20 hover:border-accent hover:shadow-xl transform hover:-translate-y-2 transition duration-300"
+        @mouseenter="active=3" @mouseleave="active=null"
+      >
+        <div class="flex items-center mb-4 text-yellow-400 text-xl space-x-1">
+          <i class="fas fa-star" :class="{'animate-pulse': active===3}"></i>
+          <i class="fas fa-star" :class="{'animate-pulse': active===3}"></i>
+          <i class="fas fa-star" :class="{'animate-pulse': active===3}"></i>
+          <i class="fas fa-star" :class="{'animate-pulse': active===3}"></i>
+          <i class="fas fa-star" :class="{'animate-pulse': active===3}"></i>
+        </div>
+
+        <p class="italic mb-6 leading-relaxed">
+          "The ICT training provided to our teachers has revolutionized how we deliver lessons. We're now using technology effectively in our classrooms thanks to Mavinstech."
+        </p>
+
+        <div class="flex items-center">
+          <img src="media/testimonial3.jpg" alt="Nickson Bonke" class="w-14 h-14 rounded-full object-cover mr-4 border-2 border-accent">
+          <div>
+            <h4 class="font-bold">Nickson Bonke</h4>
+            <p class="text-sm text-white/80">Partnership Facilitator</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
       <div class="text-center mt-12">
         <a href="#contact" class="inline-block bg-accent text-primary px-8 py-3 rounded-lg font-bold hover:bg-yellow-500 transition duration-300">
           Become Our Next Success Story
@@ -986,6 +1000,112 @@
     </div>
   </section>
 
+<!-- ===== FAQ SECTION (Interactive) ===== -->
+<section class="bg-gray-50 py-12" id="faq" aria-labelledby="faq-title">
+  <div class="max-w-5xl mx-auto px-6">
+    <!-- Header -->
+    <header class="text-center mb-10">
+      <p class="text-indigo-600 font-semibold uppercase">Have any questions?</p>
+      <h2 class="text-3xl font-bold text-gray-800" id="faq-title">Frequently Asked Questions</h2>
+      <p class="mt-3 text-gray-600">Find answers to common questions about our services and processes.</p>
+    </header>
+
+    <!-- Accordion -->
+    <div class="space-y-4">
+      <!-- ITEM -->
+      <div class="faq__item border rounded-2xl shadow-sm bg-white overflow-hidden">
+        <button class="faq__question flex justify-between items-center w-full p-5 text-left text-gray-800 font-medium hover:text-indigo-600 transition"
+                aria-expanded="false" aria-controls="faq1">
+          <span>What digital services does Mavinstech Solutions provide?</span>
+          <svg class="faq__icon w-6 h-6 transform transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 9l6 6 6-6" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div id="faq1" class="faq__answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+          <p class="px-5 pb-5 text-gray-600">
+            We offer web design & development, ecommerce, branding & graphics, ICT training,
+            Kolibri educational tech, interactive content development, and ongoing support/maintenance.
+          </p>
+        </div>
+      </div>
+
+      <!-- ITEM -->
+      <div class="faq__item border rounded-2xl shadow-sm bg-white overflow-hidden">
+        <button class="faq__question flex justify-between items-center w-full p-5 text-left text-gray-800 font-medium hover:text-indigo-600 transition"
+                aria-expanded="false" aria-controls="faq2">
+          <span>How long does it take to design and develop a website?</span>
+          <svg class="faq__icon w-6 h-6 transform transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 9l6 6 6-6" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div id="faq2" class="faq__answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+          <p class="px-5 pb-5 text-gray-600">
+            Most projects take 1–3 weeks for small sites and 4–6 weeks for larger or
+            ecommerce builds. Timelines depend on features, content readiness, and feedback speed.
+          </p>
+        </div>
+      </div>
+
+      <!-- ITEM -->
+      <div class="faq__item border rounded-2xl shadow-sm bg-white overflow-hidden">
+        <button class="faq__question flex justify-between items-center w-full p-5 text-left text-gray-800 font-medium hover:text-indigo-600 transition"
+                aria-expanded="false" aria-controls="faq3">
+          <span>Do you offer customized solutions for businesses?</span>
+          <svg class="faq__icon w-6 h-6 transform transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 9l6 6 6-6" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div id="faq3" class="faq__answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+          <p class="px-5 pb-5 text-gray-600">
+            Yes. We tailor design, functionality, and integrations (payments, CRM, WhatsApp, etc.)
+            to your goals and budget, with scalable plans as you grow.
+          </p>
+        </div>
+      </div>
+
+      <!-- ITEM -->
+      <div class="faq__item border rounded-2xl shadow-sm bg-white overflow-hidden">
+        <button class="faq__question flex justify-between items-center w-full p-5 text-left text-gray-800 font-medium hover:text-indigo-600 transition"
+                aria-expanded="false" aria-controls="faq4">
+          <span>How much does it cost to build a website in Kenya?</span>
+          <svg class="faq__icon w-6 h-6 transform transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 9l6 6 6-6" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div id="faq4" class="faq__answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+          <p class="px-5 pb-5 text-gray-600">
+            Pricing starts from KSh 25,000 for a basic site. Ecommerce and custom features
+            are quoted after a short requirements call. Every quote includes hosting guidance and support.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Accordion Script -->
+<script>
+  document.querySelectorAll(".faq__question").forEach(button => {
+    button.addEventListener("click", () => {
+      const answer = button.nextElementSibling;
+      const expanded = button.getAttribute("aria-expanded") === "true";
+
+      // Close all others
+      document.querySelectorAll(".faq__answer").forEach(a => {
+        a.style.maxHeight = null;
+        a.previousElementSibling.querySelector("svg").classList.remove("rotate-180");
+        a.previousElementSibling.setAttribute("aria-expanded", "false");
+      });
+
+      // Toggle current
+      if (!expanded) {
+        answer.style.maxHeight = answer.scrollHeight + "px";
+        button.querySelector("svg").classList.add("rotate-180");
+        button.setAttribute("aria-expanded", "true");
+      }
+    });
+  });
+</script>
   <!-- Contact Section -->
   <section id="contact" class="py-16 px-6 bg-white">
     <div class="max-w-6xl mx-auto">
@@ -1147,6 +1267,7 @@
     }
   });
 </script>
+
 
 
 
