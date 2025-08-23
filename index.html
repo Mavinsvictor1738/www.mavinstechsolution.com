@@ -898,9 +898,13 @@
   </section>
 
   
-<!-- Testimonials Section -->
+
+    <!-- ===== Testimonials Section (Auto-Slide Carousel) ===== -->
 <section id="testimonials" class="py-20 px-6 bg-primary text-white relative overflow-hidden">
-  <div class="max-w-6xl mx-auto">
+  <div class="max-w-6xl mx-auto" 
+       x-data="{ active: 0, testimonials: [0,1,2] }"
+       x-init="setInterval(() => { active = (active + 1) % testimonials.length }, 5000)">
+    
     <!-- Header -->
     <div class="text-center mb-16">
       <h2 class="text-4xl font-extrabold mb-4">What Our Clients Say</h2>
@@ -909,96 +913,83 @@
       </p>
     </div>
 
-    <!-- Testimonials Grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10" x-data="{ active: null }">
-      
-      <!-- Testimonial Card -->
-      <div 
-        class="bg-white bg-opacity-10 p-8 rounded-2xl border border-white/20 hover:border-accent hover:shadow-xl transform hover:-translate-y-2 transition duration-300"
-        @mouseenter="active=1" @mouseleave="active=null"
-      >
-        <!-- Stars -->
-        <div class="flex items-center mb-4 text-yellow-400 text-xl space-x-1">
-          <i class="fas fa-star" :class="{'animate-pulse': active===1}"></i>
-          <i class="fas fa-star" :class="{'animate-pulse': active===1}"></i>
-          <i class="fas fa-star" :class="{'animate-pulse': active===1}"></i>
-          <i class="fas fa-star" :class="{'animate-pulse': active===1}"></i>
-          <i class="fas fa-star" :class="{'animate-pulse': active===1}"></i>
-        </div>
+    <!-- Carousel Wrapper -->
+    <div class="relative overflow-hidden h-[420px]"> <!-- fixed height for smooth transitions -->
+      <template x-for="(item, index) in testimonials" :key="index">
+        <div 
+          class="absolute inset-0 transition-all duration-700 ease-in-out transform"
+          :class="{
+            'translate-x-0 opacity-100': active === index,
+            'translate-x-full opacity-0': (active < index) || (active === 0 && index === testimonials.length-1),
+            '-translate-x-full opacity-0': (active > index) || (active === testimonials.length-1 && index === 0)
+          }"
+        >
+          <!-- Testimonial Card -->
+          <div class="bg-white bg-opacity-10 p-10 rounded-2xl border border-white/20 shadow-xl max-w-3xl mx-auto">
+            
+            <!-- Stars -->
+            <div class="flex items-center mb-4 text-yellow-400 text-xl space-x-1">
+              <template x-for="i in 5" :key="i">
+                <i class="fas fa-star"></i>
+              </template>
+            </div>
 
-        <p class="italic mb-6 leading-relaxed">
-          "Mavinstech transformed our school's digital capabilities. The Kolibri platform they implemented has made learning more engaging for our students, even without reliable internet."
-        </p>
+            <!-- Testimonial Text -->
+            <template x-if="index===0">
+              <p class="italic mb-6 leading-relaxed text-lg">
+                "Mavinstech transformed our school's digital capabilities. The Kolibri platform they implemented has made learning more engaging for our students, even without reliable internet."
+              </p>
+            </template>
+            <template x-if="index===1">
+              <p class="italic mb-6 leading-relaxed text-lg">
+                "Our new website has brought in more customers than we ever imagined. Mavinstech understood exactly what our business needed and delivered beyond our expectations."
+              </p>
+            </template>
+            <template x-if="index===2">
+              <p class="italic mb-6 leading-relaxed text-lg">
+                "The ICT training provided to our teachers has revolutionized how we deliver lessons. We're now using technology effectively in our classrooms thanks to Mavinstech."
+              </p>
+            </template>
 
-        <div class="flex items-center">
-          <img src="media/testimonial1.jpg" alt="Emily Wanjala" class="w-14 h-14 rounded-full object-cover mr-4 border-2 border-accent">
-          <div>
-            <h4 class="font-bold">Emily Wanjala</h4>
-            <p class="text-sm text-white/80">Project Director, AIC Chanagande CDC</p>
+            <!-- Profile -->
+            <div class="flex items-center mt-6">
+              <img 
+                :src="index===0 ? 'media/testimonial1.jpg' : index===1 ? 'media/testimonial2.jpg' : 'media/testimonial3.jpg'"
+                :alt="index===0 ? 'Emily Wanjala' : index===1 ? 'Richard Ngala' : 'Nickson Bonke'"
+                class="w-14 h-14 rounded-full object-cover mr-4 border-2 border-accent">
+              <div>
+                <h4 class="font-bold" 
+                    x-text="index===0 ? 'Emily Wanjala' : index===1 ? 'Richard Ngala' : 'Nickson Bonke'"></h4>
+                <p class="text-sm text-white/80" 
+                   x-text="index===0 ? 'Project Director, AIC Chanagande CDC' : index===1 ? 'Director, RGC Bamba CDC' : 'Partnership Facilitator'"></p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-
-      <!-- Testimonial 2 -->
-      <div 
-        class="bg-white bg-opacity-10 p-8 rounded-2xl border border-white/20 hover:border-accent hover:shadow-xl transform hover:-translate-y-2 transition duration-300"
-        @mouseenter="active=2" @mouseleave="active=null"
-      >
-        <div class="flex items-center mb-4 text-yellow-400 text-xl space-x-1">
-          <i class="fas fa-star" :class="{'animate-pulse': active===2}"></i>
-          <i class="fas fa-star" :class="{'animate-pulse': active===2}"></i>
-          <i class="fas fa-star" :class="{'animate-pulse': active===2}"></i>
-          <i class="fas fa-star" :class="{'animate-pulse': active===2}"></i>
-          <i class="fas fa-star" :class="{'animate-pulse': active===2}"></i>
-        </div>
-
-        <p class="italic mb-6 leading-relaxed">
-          "Our new website has brought in more customers than we ever imagined. Mavinstech understood exactly what our business needed and delivered beyond our expectations."
-        </p>
-
-        <div class="flex items-center">
-          <img src="media/testimonial2.jpg" alt="Richard Ngala" class="w-14 h-14 rounded-full object-cover mr-4 border-2 border-accent">
-          <div>
-            <h4 class="font-bold">Richard Ngala</h4>
-            <p class="text-sm text-white/80">Director, RGC Bamba CDC</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Testimonial 3 -->
-      <div 
-        class="bg-white bg-opacity-10 p-8 rounded-2xl border border-white/20 hover:border-accent hover:shadow-xl transform hover:-translate-y-2 transition duration-300"
-        @mouseenter="active=3" @mouseleave="active=null"
-      >
-        <div class="flex items-center mb-4 text-yellow-400 text-xl space-x-1">
-          <i class="fas fa-star" :class="{'animate-pulse': active===3}"></i>
-          <i class="fas fa-star" :class="{'animate-pulse': active===3}"></i>
-          <i class="fas fa-star" :class="{'animate-pulse': active===3}"></i>
-          <i class="fas fa-star" :class="{'animate-pulse': active===3}"></i>
-          <i class="fas fa-star" :class="{'animate-pulse': active===3}"></i>
-        </div>
-
-        <p class="italic mb-6 leading-relaxed">
-          "The ICT training provided to our teachers has revolutionized how we deliver lessons. We're now using technology effectively in our classrooms thanks to Mavinstech."
-        </p>
-
-        <div class="flex items-center">
-          <img src="media/testimonial3.jpg" alt="Nickson Bonke" class="w-14 h-14 rounded-full object-cover mr-4 border-2 border-accent">
-          <div>
-            <h4 class="font-bold">Nickson Bonke</h4>
-            <p class="text-sm text-white/80">Partnership Facilitator</p>
-          </div>
-        </div>
-      </div>
+      </template>
     </div>
 
-      <div class="text-center mt-12">
-        <a href="#contact" class="inline-block bg-accent text-primary px-8 py-3 rounded-lg font-bold hover:bg-yellow-500 transition duration-300">
-          Become Our Next Success Story
-        </a>
-      </div>
+    <!-- Dots Navigation -->
+    <div class="flex justify-center mt-10 space-x-3">
+      <template x-for="(dot, i) in testimonials" :key="i">
+        <button 
+          class="w-3 h-3 rounded-full transition"
+          :class="active===i ? 'bg-accent scale-125' : 'bg-white/40'"
+          @click="active=i"
+        ></button>
+      </template>
     </div>
-  </section>
+  </div>
+</section>
+
+    <!-- CTA -->
+    <div class="text-center mt-16">
+      <a href="#contact" class="inline-block bg-accent text-primary px-10 py-4 rounded-xl font-bold text-lg shadow-md hover:bg-yellow-500 transition duration-300 transform hover:-translate-y-1">
+        Become Our Next Success Story
+      </a>
+    </div>
+  </div>
+</section>
 
 <!-- ===== FAQ SECTION (Interactive) ===== -->
 <section class="bg-gray-50 py-12" id="faq" aria-labelledby="faq-title">
@@ -1267,6 +1258,7 @@
     }
   });
 </script>
+
 
 
 
